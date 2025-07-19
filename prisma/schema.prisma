@@ -13,4 +13,23 @@ model User {
   email      String   @unique
   senhaHash  String
   criadoEm   DateTime @default(now())
+  datasets   Dataset[]
+}
+
+model Dataset {
+  id         Int       @id @default(autoincrement())
+  nome       String
+  tamanho    Int
+  criadoEm   DateTime  @default(now())
+  usuario    User      @relation(fields: [usuarioId], references: [id])
+  usuarioId  Int
+  records    Record[]  // <- Um dataset pode ter vários registros
+}
+
+model Record {
+  id         Int       @id @default(autoincrement())
+  dadosJson  Json
+  criadoEm   DateTime  @default(now())
+  dataset    Dataset   @relation(fields: [datasetId], references: [id])
+  datasetId  Int
 }

@@ -1,4 +1,4 @@
-### Registrar novo usuário
+### POST auth/register - Registrar novo usuário
 POST http://localhost:3000/auth/register
 Content-Type: application/json
 
@@ -8,7 +8,7 @@ Content-Type: application/json
   "senha": "123456"
 }
 
-### Login do usuário e salvar o token na variável @token
+### POST auth/login - Login do usuário
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
@@ -17,6 +17,14 @@ Content-Type: application/json
   "senha": "123456"
 }
 
-### Obter dados do usuário logado
-GET http://localhost:3000/
+### /me Obter dados do usuário logado
+GET http://localhost:3000/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk0MjcwOSwiZXhwIjoxNzUyOTQ5OTA5fQ.8XJSOMA_Nkm2GTSW_1XNRJw9Xvc4618-LZ6KSGG2MwM
+
+
+# ### POST datasets/upload - Upload e injeção de ddados
+# O escopo de teste é esse, mas aqui não funciona pois o HTTP não suporta esse teste
+# POST http://localhost:3000/datasets/upload
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk0NzMyMiwiZXhwIjoxNzUyOTU0NTIyfQ.T7tJw2vjISGDRGQ0QFdr0ACI812php3UDiZARVN-WvE
+
+# arquivo=@./teste.csv

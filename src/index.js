@@ -1,0 +1,21 @@
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes');
+
+app.use('/auth', authRoutes);
+app.use('/', userRoutes); // inclui o /me
+
+app.use((req, res) => {
+  res.status(404).json({ error: 'Rota não encontrada' });
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+
+module.exports = app;

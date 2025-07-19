@@ -1,0 +1,22 @@
+### Registrar novo usuário
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "nome": "Amanda",
+  "email": "amanda@example.com",
+  "senha": "123456"
+}
+
+### Login do usuário e salvar o token na variável @token
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "amanda@example.com",
+  "senha": "123456"
+}
+
+### Obter dados do usuário logado
+GET http://localhost:3000/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk0MjcwOSwiZXhwIjoxNzUyOTQ5OTA5fQ.8XJSOMA_Nkm2GTSW_1XNRJw9Xvc4618-LZ6KSGG2MwM

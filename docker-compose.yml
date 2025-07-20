@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: desafio_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: desafioTecnico
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - desafio-net
+
+  api:
+    build: .
+    container_name: desafio_api
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.docker
+    volumes:
+      - .:/app
+    command: sh -c "npx prisma migrate deploy && node index.js"
+    networks:
+      - desafio-net
+
+volumes:
+  pgdata:
+
+networks:
+  desafio-net:

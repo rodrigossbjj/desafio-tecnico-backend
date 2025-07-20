@@ -20,6 +20,7 @@ build/
 
 # Ambiente
 .env
+.env.docker
 
 # Mac OS
 .DS_Store

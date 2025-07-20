@@ -1,8 +1,8 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-//Função que simula uma resposta simples (Mock de IA)
-function gerarRespostaMock(pergunta, dadosTexto) {
+//Função que simula uma resposta simples baseada no conteúdo do Dataset (Mock de IA)
+function gerarRespostaMock(dadosTexto) {
   const textoLower = dadosTexto.toLowerCase();
 
   if (textoLower.includes('relatório') || textoLower.includes('relatorio')) {
@@ -26,6 +26,29 @@ function gerarRespostaMock(pergunta, dadosTexto) {
 }
 
 
+exports.listQueries = async (req, res) => {
+  try {
+    const usuarioId = req.usuario.id;
+
+    const queries = await prisma.query.findMany({
+      where: { usuarioId },
+      orderBy: { criadoEm: 'desc' },
+      select: {
+        id: true,
+        pergunta: true,
+        resposta: true,
+        criadoEm: true
+      }
+    });
+
+    res.json(queries);
+  } catch (error) {
+    console.error('Erro ao listar consultas:', error);
+    res.status(500).json({ error: 'Erro ao buscar as consultas anteriores.' });
+  }
+};
+
+
 exports.createQuery = async (req, res) => {
   try {
     const { pergunta, datasetId } = req.body;
@@ -35,7 +58,7 @@ exports.createQuery = async (req, res) => {
       return res.status(400).json({ error: 'Campos "pergunta" e "datasetId" são obrigatórios.' });
     }
 
-    // Busca os primeiros 10 registros do dataset
+    //Busca os primeiros 10 registros do dataset
     const records = await prisma.record.findMany({
       where: { datasetId },
       take: 10
@@ -45,15 +68,15 @@ exports.createQuery = async (req, res) => {
       return res.status(404).json({ error: 'Nenhum dado encontrado neste dataset.' });
     }
 
-    // Monta texto base dos dados para usar no mock
+    //Monta texto base dos dados para usar no mock
     const dadosTexto = records.map((r, i) =>
       `Registro ${i + 1}: ${JSON.stringify(r.dadosJson)}`
     ).join('\n');
 
-    // Gera resposta simulada
+    //Gera resposta simulada
     const resposta = gerarRespostaMock(pergunta, dadosTexto);
 
-    // Salva no banco
+    //Salva no banco
     const queryRegistro = await prisma.query.create({
       data: {
         pergunta,

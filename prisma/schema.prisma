@@ -8,12 +8,13 @@ datasource db {
 }
 
 model User {
-  id         Int      @id @default(autoincrement())
+  id         Int       @id @default(autoincrement())
   nome       String
-  email      String   @unique
+  email      String    @unique
   senhaHash  String
-  criadoEm   DateTime @default(now())
+  criadoEm   DateTime  @default(now())
   datasets   Dataset[]
+  queries    Query[]
 }
 
 model Dataset {
@@ -23,7 +24,7 @@ model Dataset {
   criadoEm   DateTime  @default(now())
   usuario    User      @relation(fields: [usuarioId], references: [id])
   usuarioId  Int
-  records    Record[]  // <- Um dataset pode ter vários registros
+  records    Record[]
 }
 
 model Record {
@@ -32,4 +33,13 @@ model Record {
   criadoEm   DateTime  @default(now())
   dataset    Dataset   @relation(fields: [datasetId], references: [id])
   datasetId  Int
+}
+
+model Query {
+  id         Int      @id @default(autoincrement())
+  usuario    User     @relation(fields: [usuarioId], references: [id])
+  usuarioId  Int
+  pergunta   String
+  resposta   String
+  criadoEm   DateTime @default(now())
 }

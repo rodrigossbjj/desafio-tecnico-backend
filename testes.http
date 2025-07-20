@@ -39,3 +39,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6I
 ### GET /records/search?query=... — busca textual por palavra-chave no JSON
 GET http://localhost:3000/records/search?query=desafiotecnico
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk4MDUxNCwiZXhwIjoxNzUyOTg3NzE0fQ.fMJ0zxHmj3jQhPMAxKXJxRzNTjXzngkDdVJNByBxefM
+
+### POST /queries - simula resposta com IA
+POST http://localhost:3000/queries
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1MzAzMzM4NiwiZXhwIjoxNzUzMDQwNTg2fQ.Z9WdomfkutP9tECQdLaz7W3S6jfkpA-ufnFfHu3_m8E
+
+{
+  "pergunta": "relatório?",
+  "datasetId": 3
+}
+

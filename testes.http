@@ -22,7 +22,7 @@ GET http://localhost:3000/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IlJvZHJpZ28iLCJpYXQiOjE3NTI5Nzk2MDEsImV4cCI6MTc1Mjk4NjgwMX0.DOsd1eDTbKZ0RKk9OGDJ5_Jm2oH2qG-tideTwUtNt5Q
 
 # ### POST datasets/upload - Upload e injeção de ddados
-# O escopo de teste é esse, mas aqui não funciona pois o HTTP não suporta esse teste
+# O escopo de teste é esse, mas aqui não funciona pois o HTTP não suporta esse teste (Usar o Postman que é melhor para subir o arq)
 # POST http://localhost:3000/datasets/upload
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk0NzMyMiwiZXhwIjoxNzUyOTU0NTIyfQ.T7tJw2vjISGDRGQ0QFdr0ACI812php3UDiZARVN-WvE
 
@@ -36,3 +36,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6I
 GET http://localhost:3000/datasets/1/records
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk4MDUxNCwiZXhwIjoxNzUyOTg3NzE0fQ.fMJ0zxHmj3jQhPMAxKXJxRzNTjXzngkDdVJNByBxefM
 
+### GET /records/search?query=... — busca textual por palavra-chave no JSON
+GET http://localhost:3000/records/search?query=desafiotecnico
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk4MDUxNCwiZXhwIjoxNzUyOTg3NzE0fQ.fMJ0zxHmj3jQhPMAxKXJxRzNTjXzngkDdVJNByBxefM

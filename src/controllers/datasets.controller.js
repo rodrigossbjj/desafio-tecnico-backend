@@ -86,14 +86,14 @@ exports.uploadDataset = async (req, res) => {
         }))
       });
     } else if (ext === '.pdf') {
-      const pdfBuffer = fs.readFileSync(file.path); // Lê o arquivo PDF como buffer
-      const data = await pdfParse(pdfBuffer);       // Extrai o texto do PDF
+      const pdfBuffer = fs.readFileSync(file.path); //Lê o arquivo PDF como buffer
+      const data = await pdfParse(pdfBuffer);       //Extrai o texto do PDF
 
       await prisma.record.create({
         data: {
           datasetId: dataset.id,
           dadosJson: {
-            texto: data.text.trim() // Armazena como JSON { texto: "...conteúdo..." }
+            texto: data.text.trim() //Armazena como JSON { texto: "...conteúdo..." }
           }
         }
       });

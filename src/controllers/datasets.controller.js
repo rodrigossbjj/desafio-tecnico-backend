@@ -3,6 +3,27 @@ const fs = require('fs');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const parseCSV = require('../utils/parseCSV');
+const pdfParse = require('pdf-parse');
+
+
+exports.listDatasets = async (req, res) => {
+  try {
+    if (!req.usuario) return res.status(401).json({ erro: 'Usuário não autenticado.' });
+
+    const userId = req.usuario.id;
+
+    const datasets = await prisma.dataset.findMany({
+      where: { usuarioId: userId },
+      orderBy: { criadoEm: 'desc' },
+    });
+
+    res.json(datasets);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao listar datasets' });
+  }
+};
+
 
 exports.uploadDataset = async (req, res) => {
   try {
@@ -36,7 +57,19 @@ exports.uploadDataset = async (req, res) => {
           dadosJson: item
         }))
       });
-    }
+    } else if (ext === '.pdf') {
+      const pdfBuffer = fs.readFileSync(file.path); // Lê o arquivo PDF como buffer
+      const data = await pdfParse(pdfBuffer);       // Extrai o texto do PDF
+
+      await prisma.record.create({
+        data: {
+          datasetId: dataset.id,
+          dadosJson: {
+            texto: data.text.trim() // Armazena como JSON { texto: "...conteúdo..." }
+          }
+        }
+      });
+    } 
 
     return res.status(201).json({
       mensagem: 'Upload realizado com sucesso',

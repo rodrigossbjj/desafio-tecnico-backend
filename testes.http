@@ -28,3 +28,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6I
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk0NzMyMiwiZXhwIjoxNzUyOTU0NTIyfQ.T7tJw2vjISGDRGQ0QFdr0ACI812php3UDiZARVN-WvE
 
 # arquivo=@./teste.csv
+
+### GET datasets/datasets - Lista datasets
+GET http://localhost:3000/datasets/datasets
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk3OTI1NSwiZXhwIjoxNzUyOTg2NDU1fQ.CgmXRGphsVu44SgHwYuj-xBLdaFK6rb90rc1agMaaHE

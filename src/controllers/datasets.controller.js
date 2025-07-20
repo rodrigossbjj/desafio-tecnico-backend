@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 const parseCSV = require('../utils/parseCSV');
 const pdfParse = require('pdf-parse');
 
-
 exports.listDatasets = async (req, res) => {
   try {
     if (!req.usuario) return res.status(401).json({ erro: 'Usuário não autenticado.' });
@@ -21,6 +20,35 @@ exports.listDatasets = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Erro ao listar datasets' });
+  }
+};
+
+exports.listRecords = async (req, res) => {
+  try {
+    if (!req.usuario) return res.status(401).json({ erro: 'Usuário não autenticado.' });
+
+    const userId = req.usuario.id;
+    const datasetId = parseInt(req.params.id);
+
+    //Verifica se o dataset pertence ao usuário
+    const dataset = await prisma.dataset.findUnique({
+      where: { id: datasetId },
+    });
+
+    if (!dataset || dataset.usuarioId !== userId) {
+      return res.status(404).json({ erro: 'Dataset não encontrado' });
+    }
+
+    //Busca os registros associados
+    const records = await prisma.record.findMany({
+      where: { datasetId: datasetId },
+      orderBy: { id: 'asc' }, //ordenar por id
+    });
+
+    return res.json(records);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Erro ao listar registros' });
   }
 };
 

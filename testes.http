@@ -19,8 +19,7 @@ Content-Type: application/json
 
 ### /me Obter dados do usuário logado
 GET http://localhost:3000/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk0MjcwOSwiZXhwIjoxNzUyOTQ5OTA5fQ.8XJSOMA_Nkm2GTSW_1XNRJw9Xvc4618-LZ6KSGG2MwM
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IlJvZHJpZ28iLCJpYXQiOjE3NTI5Nzk2MDEsImV4cCI6MTc1Mjk4NjgwMX0.DOsd1eDTbKZ0RKk9OGDJ5_Jm2oH2qG-tideTwUtNt5Q
 
 # ### POST datasets/upload - Upload e injeção de ddados
 # O escopo de teste é esse, mas aqui não funciona pois o HTTP não suporta esse teste
@@ -31,4 +30,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6I
 
 ### GET datasets/datasets - Lista datasets
 GET http://localhost:3000/datasets/datasets
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk3OTI1NSwiZXhwIjoxNzUyOTg2NDU1fQ.CgmXRGphsVu44SgHwYuj-xBLdaFK6rb90rc1agMaaHE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk4MDUxNCwiZXhwIjoxNzUyOTg3NzE0fQ.fMJ0zxHmj3jQhPMAxKXJxRzNTjXzngkDdVJNByBxefM
+
+### GET /datasets/:id/records - listar registros do dataset, ou seja ler o conteúdo em record
+GET http://localhost:3000/datasets/1/records
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1Mjk4MDUxNCwiZXhwIjoxNzUyOTg3NzE0fQ.fMJ0zxHmj3jQhPMAxKXJxRzNTjXzngkDdVJNByBxefM
+

@@ -1,5 +1,5 @@
 # Etapa 1: imagem base
-FROM node:22-alpine
+FROM node:22
 
 # Cria diretório de trabalho
 WORKDIR /app

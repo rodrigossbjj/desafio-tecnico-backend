@@ -50,6 +50,10 @@ desafio-tecnico-backend/
 │   │   └── parseCSV.js
 │   └── index.js
 ├── uploads/
+├── tests/
+│   ├──── auth.controller.test.js
+├── └──utils/
+│      └── parseCSV.test.js
 ├── .env
 ├── .env.docker
 ├── .env.docker.example

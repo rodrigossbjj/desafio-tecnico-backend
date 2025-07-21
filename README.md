@@ -154,6 +154,14 @@ DATABASE_URL=postgresql://postgres:admin@db:5432/desafioTecnico
 JWT_SECRET=sua_chave_super_segura
 ```
 
+Crie um arquivo `.env.docker`:
+
+```env.docker
+DATABASE_URL=postgresql://postgres:admin@db:5432/desafioTecnico
+JWT_SECRET=sua_chave_super_segura
+NODE_ENV=development
+```
+
 Use uma chave forte para `JWT_SECRET`. Gere uma em: https://generate-random.org/string-generator
 
 ---

@@ -125,7 +125,7 @@ Authorization: Bearer <seu_token>
 - Facilita consumo da API por frontend e terceiros, além de servir como referência técnica  
 
 ---
-v
+
 ## ⚙️ Instalação e Execução
 
 ### Pré-requisitos

@@ -3,10 +3,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// Define o segredo antes de importar o controller
 process.env.JWT_SECRET = 'segredo-test';
 
-// Agora sim importa o controller
 const { register, login } = require('../src/controllers/auth.controller');
 
 // Mock do Prisma Client
@@ -123,7 +121,7 @@ describe('Auth Controller', () => {
 
       expect(jwt.sign).toHaveBeenCalledWith(
         { id: 1, nome: 'Ana' },
-        'segredo-test', // agora com valor correto
+        'segredo-test',
         { expiresIn: '2h' }
       );
       expect(res.json).toHaveBeenCalledWith({ token: 'mocked-token' });

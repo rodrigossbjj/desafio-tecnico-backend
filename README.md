@@ -52,6 +52,7 @@ desafio-tecnico-backend/
 ├── uploads/
 ├── tests/
 │   ├──── auth.controller.test.js
+│   ├──── dataset.controller.test
 ├── └──utils/
 │      └── parseCSV.test.js
 ├── .env

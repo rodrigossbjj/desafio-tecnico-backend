@@ -1,6 +1,24 @@
 version: '3.8'
 
 services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: desafio_api
+    depends_on:
+      db:
+        condition: service_started
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.docker
+    volumes:
+      - upload-data:/app/uploads
+    command: sh -c "npx prisma migrate deploy && node src/index.js"
+    networks:
+      - desafio-net
+
   db:
     image: postgres:15
     container_name: desafio_postgres
@@ -15,23 +33,9 @@ services:
     networks:
       - desafio-net
 
-  api:
-    build: .
-    container_name: desafio_api
-    depends_on:
-      - db
-    ports:
-      - "3000:3000"
-    env_file:
-      - .env.docker
-    volumes:
-      - .:/app
-    command: sh -c "npx prisma migrate deploy && node src/index.js"
-    networks:
-      - desafio-net
-
 volumes:
   pgdata:
+  upload-data:
 
 networks:
   desafio-net:

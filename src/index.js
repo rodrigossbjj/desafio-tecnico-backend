@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 
 app.use(express.json());
 
@@ -14,6 +16,8 @@ app.use('/', userRoutes); // inclui o /me
 app.use('/datasets', dataSetsRoutes);
 app.use('/records', recordsRoutes);
 app.use('/queries', queriesRoutes);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Rota não encontrada' });

@@ -19,7 +19,7 @@ Content-Type: application/json
 
 ### /me Obter dados do usuário logado
 GET http://localhost:3000/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1MzAzNzYyNywiZXhwIjoxNzUzMDQ0ODI3fQ.v7ahN0Vs8VrjII6C7k16fCwdw3HQdRFZlWFhTLy15yw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFtYW5kYSIsImlhdCI6MTc1MzA1OTEwNSwiZXhwIjoxNzUzMDY2MzA1fQ.-XK0ew8OuO1X7FMAqCHb-zQq7o2nvb3FtsXxTyzv34s
 
 # ### POST datasets/upload - Upload e injeção de ddados
 # O escopo de teste é esse, mas aqui não funciona pois o HTTP não suporta esse teste (Usar o Postman que é melhor para subir o arq)

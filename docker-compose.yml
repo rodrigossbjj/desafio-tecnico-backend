@@ -26,7 +26,7 @@ services:
       - .env.docker
     volumes:
       - .:/app
-    command: sh -c "npx prisma migrate deploy && node index.js"
+    command: sh -c "npx prisma migrate deploy && node src/index.js"
     networks:
       - desafio-net
 

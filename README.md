@@ -117,6 +117,15 @@ Authorization: Bearer <seu_token>
 
 ---
 
+### 📖 Documentação Swagger (OpenAPI)
+
+- Documentação interativa e detalhada da API, gerada automaticamente a partir dos comentários nos controllers e rotas  
+- Acesse em: `http://localhost:3000/api-docs` após iniciar a aplicação  
+- Permite visualizar, testar e entender todos os endpoints, incluindo autenticação com JWT  
+- Facilita consumo da API por frontend e terceiros, além de servir como referência técnica  
+
+---
+
 ## ⚙️ Instalação e Execução
 
 ### Pré-requisitos

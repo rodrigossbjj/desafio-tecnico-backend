@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const prisma = new PrismaClient();
-const JWT_SECRET = process.env.JWT_SECRET || 'rodrigo';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // POST /auth/register
 exports.register = async (req, res) => {

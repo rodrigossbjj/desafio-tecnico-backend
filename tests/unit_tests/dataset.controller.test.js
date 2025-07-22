@@ -1,11 +1,9 @@
-// tests/datasets.controller.test.js
-
 const path = require('path');
 const fs = require('fs');
 const pdfParse = require('pdf-parse');
-const parseCSV = require('../src/utils/parseCSV');
+const parseCSV = require('../../src/utils/parseCSV');
 
-const { listDatasets, listRecords, uploadDataset } = require('../src/controllers/datasets.controller');
+const { listDatasets, listRecords, uploadDataset } = require('../../src/controllers/datasets.controller');
 
 const prisma = require('@prisma/client');
 
@@ -25,7 +23,7 @@ jest.mock('@prisma/client', () => {
   return { PrismaClient: jest.fn(() => mPrisma) };
 });
 
-jest.mock('../src/utils/parseCSV');
+jest.mock('../../src/utils/parseCSV');
 jest.mock('pdf-parse');
 jest.mock('fs');
 

@@ -1,13 +1,11 @@
-// tests/auth.controller.test.js
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 process.env.JWT_SECRET = 'segredo-test';
 
-const { register, login } = require('../src/controllers/auth.controller');
+const { register, login } = require('../../src/controllers/auth.controller');
 
-// Mock do Prisma Client
+// Mock do Prisma Client../../src/controllers/auth.controller
 const prisma = require('@prisma/client');
 jest.mock('@prisma/client', () => {
   const mPrisma = {

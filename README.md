@@ -4,6 +4,14 @@ Este é um projeto backend de uma API RESTful desenvolvida em Node.js com Expres
 
 ---
 
+## 🧭 Fluxograma de Funcionamento da Aplicação
+
+Abaixo está o fluxograma simplificado representando o fluxo principal da API e suas funcionalidades:
+
+![Fluxograma da API](./docs/img/fluxograma-funcionamento.png)
+
+--- 
+
 ## 🚀 Tecnologias Utilizadas
 
 - Node.js + Express  
@@ -51,10 +59,15 @@ desafio-tecnico-backend/
 │   └── index.js
 ├── uploads/
 ├── tests/
-│   ├──── auth.controller.test.js
-│   ├──── dataset.controller.test
-├── └──utils/
-│      └── parseCSV.test.js
+│   ├── unit_tests/
+│   │   ├──── auth.controller.test.js
+│   │   ├──── dataset.controller.test
+│   │   ├──── queries.controller.test
+│   │   ├──── records.controller.test
+│   │   ├──── user.controller.test
+│   │   └──utils/
+│   │       └── parseCSV.test.js
+│   └── testes.http
 ├── .env
 ├── .env.docker
 ├── .env.docker.example

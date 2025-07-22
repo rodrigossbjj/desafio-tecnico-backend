@@ -8,7 +8,7 @@ Este é um projeto backend de uma API RESTful desenvolvida em Node.js com Expres
 
 Abaixo está o fluxograma simplificado representando o fluxo principal da API e suas funcionalidades:
 
-![Fluxograma da API](docs/img/fluxograma-funcionamento.png)
+![Fluxograma da API](docs/img/Fluxograma-funcionamento.png)
 
 --- 
 
